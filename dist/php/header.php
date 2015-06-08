@@ -1,3 +1,6 @@
+<?php
+require_once("config.php");
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -41,7 +44,7 @@
       
       <header class="main-header">
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="index.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"Ad><b>W</b>o<b>E</b></span>
           <!-- logo for regular state and mobile devices -->
@@ -55,6 +58,7 @@
           </a>
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
+              <?php if(!empty($_SESSION['user'])) { ?>
               <!-- Messages: style can be found in dropdown.less-->
               <li class="dropdown messages-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -267,7 +271,7 @@
                       <a href="#" class="btn btn-default btn-flat">Profile</a>
                     </div>
                     <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                      <a href="logout.php" class="btn btn-default btn-flat">Log out</a>
                     </div>
                   </li>
                 </ul>
@@ -276,7 +280,83 @@
               <li>
                 <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
               </li>
+              <?php } ?>
             </ul>
           </div>
         </nav>
       </header>
+
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+          <?php if(!empty($_SESSION['user'])) { ?>
+          <!-- Sidebar user panel -->
+          <div class="user-panel">
+            <div class="pull-left image">
+              <img src="dist/img/UTAlan.png" class="img-circle" alt="User Image" />
+            </div>
+            <div class="pull-left info">
+              <p>UTAlan</p>
+            </div>
+          </div>
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu">
+            <li class="header">MAIN NAVIGATION</li>
+            <li class="active treeview">
+              <a href="#">
+                <i class="fa fa-dashboard"></i> <span>Locations</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li class="active"><a href="map_world.php"><i class="fa fa-circle-o"></i> World Map</a></li>
+              </ul>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-files-o"></i>
+                <span>Inventory</span>
+                <span class="label label-primary pull-right">4</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-th"></i> <span>Crafting</span> <small class="label pull-right bg-green">new</small>
+              </a>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-pie-chart"></i>
+                <span>Quests</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-laptop"></i>
+                <span>Tournaments</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-envelope"></i> <span>Mailbox</span>
+                <small class="label pull-right bg-yellow">12</small>
+              </a>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-table"></i> <span>Skill Tree</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-calendar"></i> <span>Store</span>
+                <small class="label pull-right bg-red">3</small>
+              </a>
+            </li>
+          </ul>
+          <?php } ?>
+        </section>
+        <!-- /.sidebar -->
+      </aside>

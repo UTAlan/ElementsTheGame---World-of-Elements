@@ -88,6 +88,7 @@ require_once("dist/php/header.php");
                           <input type="text" class="form-control" id="inputUsername3" name="username" placeholder="Username">
                         </div>
                       </div>
+                      <p class="margin">Eventually, this will send the specified user an email with an activation link.<br />Until then, it redirects to that activation url.</p>
                     </div><!-- /.box-body -->
                     <div class="box-footer">
                       <button type="submit" class="btn btn-info pull-right">Register</button>

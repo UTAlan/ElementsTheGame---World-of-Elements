@@ -125,6 +125,7 @@ $(function () {
 
   /* Morris.js Charts */
   // Sales chart
+  /*
   var area = new Morris.Area({
     element: 'revenue-chart',
     resize: true,
@@ -194,7 +195,7 @@ $(function () {
     area.redraw();
     donut.redraw();
   });
-
+  */
 
   /* BOX REFRESH PLUGIN EXAMPLE (usage with morris charts) */
   $("#loading-example").boxRefresh({

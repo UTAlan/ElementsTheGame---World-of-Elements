@@ -5,7 +5,7 @@ require_once("config.php");
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>World of Elements &middot; Elements Community</title>
+    <title><?php if(!empty($PAGE['title'])) { echo $PAGE['title'] . ' &middot; '; } ?>World of Elements &middot; Elements Community</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.4 -->
@@ -303,13 +303,56 @@ require_once("config.php");
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
-            <li class="active treeview">
-              <a href="#">
-                <i class="fa fa-dashboard"></i> <span>Locations</span> <i class="fa fa-angle-left pull-right"></i>
+            <li class="treeview<?php if(!empty($PAGE['nav']['admin'])) { echo ' active'; } ?>">
+              <a href="admin.php">
+                <i class="fa fa-server"></i>
+                <span>Administration</span>
+                <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li class="active"><a href="map_world.php"><i class="fa fa-circle-o"></i> World Map</a></li>
+                <li<?php if(!empty($PAGE['subnav']['admin_stats'])) { echo ' class="active"'; } ?>>
+                  <a href="admin_stats.php">
+                    <i class="fa fa-circle-o"></i>
+                    Admin Stats
+                  </a>
+                </li>
+                <li<?php if(!empty($PAGE['subnav']['admin_crafting'])) { echo ' class="active"'; } ?>>
+                  <a href="#">
+                    <i class="fa fa-circle-o"></i>
+                    Manage Crafting
+                  </a>
+                </li>
+                <li<?php if(!empty($PAGE['subnav']['admin_quests'])) { echo ' class="active"'; } ?>>
+                  <a href="#">
+                    <i class="fa fa-circle-o"></i>
+                    Manage Quests
+                  </a>
+                </li>
+                <li<?php if(!empty($PAGE['subnav']['admin_maps'])) { echo ' class="active"'; } ?>>
+                  <a href="#">
+                    <i class="fa fa-circle-o"></i>
+                    Manage Maps
+                  </a>
+                </li>
+                <li<?php if(!empty($PAGE['subnav']['admin_tournaments'])) { echo ' class="active"'; } ?>>
+                  <a href="#">
+                    <i class="fa fa-circle-o"></i>
+                    Manage Tournaments
+                  </a>
+                </li>
+                <li<?php if(!empty($PAGE['subnav']['admin_users'])) { echo ' class="active"'; } ?>>
+                  <a href="#">
+                    <i class="fa fa-circle-o"></i>
+                    Manage Users
+                  </a>
+                </li>
               </ul>
+            </li>
+            <li class="treeview<?php if(!empty($PAGE['nav']['world_map'])) { echo ' active'; } ?>">
+              <a href="map_world.php">
+                <i class="fa fa-globe"></i> 
+                <span>World Map</span>
+              </a>
             </li>
             <li class="treeview">
               <a href="#">
@@ -320,7 +363,9 @@ require_once("config.php");
             </li>
             <li>
               <a href="#">
-                <i class="fa fa-th"></i> <span>Crafting</span> <small class="label pull-right bg-green">new</small>
+                <i class="fa fa-th"></i>
+                <span>Crafting</span>
+                <small class="label pull-right bg-green">new</small>
               </a>
             </li>
             <li class="treeview">

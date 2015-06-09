@@ -333,3 +333,20 @@
     
   }
 })(jQuery, $.AdminLTE);
+
+
+
+
+
+
+
+
+/* Custom JS */
+
+function fix_world_map_height() {
+  var objHeight = 0;
+  $.each($('#world-map-wrapper').children(), function(){
+    objHeight += $(this).height();
+  });
+  $('#world-map-wrapper').height(objHeight);
+}

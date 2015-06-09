@@ -16,7 +16,7 @@ if(!empty($_POST)) {
 		$_SESSION['user']['id'] = $user['id'];
 		$_SESSION['user']['username'] = $user['username'];
 
-		$db->query("UPDATE users SET password = '$password', approved = 1, last_seen = NOW() WHERE id = " . $user['id']);
+		$db->query("UPDATE users SET password = '$password', approved = 1, last_seen = NOW(), date_created = NOW() WHERE id = " . $user['id']);
 
 		header("Location: map_world.php");
   		die();

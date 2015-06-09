@@ -219,15 +219,7 @@
 
     <script>
     $(function() {
-      $("#hexagon00").click(function() {
-        alert('test');
-      });
-
-      var objHeight = 0;
-      $.each($('#world-map-wrapper').children(), function(){
-        objHeight += $(this).height();
-      });
-      $('#world-map-wrapper').height(objHeight);
+      <?php if(!empty($PAGE['jquery'])) { echo $PAGE['jquery']; } ?>
     });
     </script>
   </body>

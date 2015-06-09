@@ -1,4 +1,19 @@
 <?php
+// JQuery
+$PAGE['jquery'] = <<<JQUERY
+
+fix_world_map_height();
+
+$( window ).resize(function() {
+  fix_world_map_height();
+});
+
+JQUERY;
+
+// Page Config
+$PAGE['nav']['world_map'] = true;
+$PAGE['title'] = 'World Map';
+
 require_once("dist/php/header.php");
 ?>
 
@@ -10,8 +25,10 @@ require_once("dist/php/header.php");
             World Map
           </h1>
           <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Locations</a></li>
-            <li class="active">World Map</li>
+            <li class="active">
+              <i class="fa fa-globe"></i> 
+              World Map
+            </li>
           </ol>
         </section>
 
@@ -20,11 +37,14 @@ require_once("dist/php/header.php");
           <!-- Main row -->
           <div class="row">
             <!-- World Map -->
-            <section class="col-lg-12">
-              <div class="nav-tabs-custom">
-                <ul class="nav nav-tabs pull-right">
-                  <li class="pull-left header"><i class="fa fa-map-marker"></i> Current Region Name</li>
-                </ul>
+            <section class="col-lg-8">
+              <div class="box box-success">
+                <div class="box-header with-border">
+                  <h3 class="box-title">
+                    <i class="fa fa-map-marker"></i> 
+                    Current Region Name
+                  </h3>
+                </div>
                 <div class="box-body" id="world-map-wrapper">
                   <div id="world-map-div">
                     <div class='hexrow'>
@@ -125,6 +145,19 @@ require_once("dist/php/header.php");
                 </div><!-- /.box-body-->
               </div>
             </section>
+            <div class="col-lg-4">
+              <div class="box box-danger">
+                <div class="box-header with-border">
+                  <h3 class="box-title">
+                    <i class="fa fa-info-circle"></i> 
+                    Map Dialogue/Info
+                  </h3>
+                </div>
+                <div class="box-body">
+                  <p>You have completed all actions for the current location. You have <b>3</b> turns remaining. You may travel to a new location for more options.</p>
+                </div>
+              </div>
+            </div>
           </div><!-- /.row (main row) -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->

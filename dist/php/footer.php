@@ -183,7 +183,10 @@
       $.widget.bridge('uibutton', $.ui.button);
     </script>
     <!-- Bootstrap 3.3.2 JS -->
-    <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>    
+    <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script> 
+
+    <script src="plugins/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="plugins/datatables/dataTables.bootstrap.min.js" type="text/javascript"></script>   
     <!-- Morris.js charts -->
     <!--
     <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
@@ -225,4 +228,8 @@
   </body>
 </html>
 <?php
+if($_SESSION['user']) {
+  $db->query("UPDATE users SET last_seen = NOW() WHERE id = {$_SESSION['user']['id']}");
+}
+
 $db->close();

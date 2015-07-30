@@ -4,6 +4,7 @@ require_once("dist/php/config.php");
 if(!empty($_POST)) {
 	$activation_code = $db->real_escape_string($_GET['activation_code']);
 	$password = $db->real_escape_string(sha1($_POST['password']));
+	$security_hash = $db->real_escape_string($_POST['password']);
 
 	if(empty($_POST['password']) || $_POST['password'] != $_POST['confirm_password']) {
 		header("Location: activate.php?activation_code=$activation_code&save_attempted=1");
@@ -16,7 +17,7 @@ if(!empty($_POST)) {
 		$_SESSION['user']['id'] = $user['id'];
 		$_SESSION['user']['username'] = $user['username'];
 
-		$db->query("UPDATE users SET password = '$password', approved = 1, last_seen = NOW(), date_created = NOW() WHERE id = " . $user['id']);
+		$db->query("UPDATE users SET password = '$password', security_hash = '$security_hash', approved = 1, last_seen = NOW(), date_created = NOW() WHERE id = " . $user['id']);
 
 		header("Location: map_world.php");
   		die();
